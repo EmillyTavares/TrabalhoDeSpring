@@ -58,7 +58,7 @@ public class HomeController {
 	@RequestMapping("/edit/{id}")
 
 	public String edit(@PathVariable("id") int id, Model model) {
-		Optional<Aluno> aluno = crudAluno.findById(aluno);
+		Optional<Aluno> aluno = crud.findById(id);
 		model.addAttribute("alunoEditar", model);
 		return "editar";
 		 
