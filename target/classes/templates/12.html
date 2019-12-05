@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário HTML</title>
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon"  href="e.png">
+
+
+<script type="text/javascript" th:src="@{js/main.js}" src="../static/js/main.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <style type="text/css">
+        
+        .formulario{
+    width: 400px;
+    padding: 30px;
+    border:1px solid #ccc;
+    background: white;
+}
+.formulario p{
+    width: 100%;
+    font-size: 1.5em;
+}
+.field{
+    width: 100%;
+    margin: 15px 0;
+}
+.field label, 
+.field span{
+    padding-left: 10px;
+    font-size: 1.1em;
+    display: block;
+    width: 100%;
+}
+.radiobox label{
+    width: auto;
+    display: inline-block;
+}
+input[type=text],
+input[type=email],
+textarea{
+    width: 100%;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+input#nao{
+    margin-left: 30px;
+}
+textarea{
+    line-height: 20px;
+    padding: 10px;
+    height: 90px;
+    resize: none;
+}
+input[type=submit]{
+    display: block;
+    background-color: orange;
+    height: 35px;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 15px;
+}
+
+     body.center-form {
+    min-height: 100vh;
+  }
+
+  div.center-form {
+    position: relative;
+    min-height: 100vh;
+
+  }
+
+  div.center-form > form {
+    position: absolute;
+    border: 9px solid #eead2d ;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  #t{
+    margin-left: 50%;
+    margin-top: -4%;
+  }
+  
+
+  #button{
+    background: white;
+  }
+
+    </style>
+
+</head>
+<body  class="center-form" bgcolor="">
+<div class="alert alert-success" role="alert" th:text="${mensagem}" th:if="${not #strings.isEmpty(mensagem)}"> </div>
+<div class="alert alert-success" role="alert" th:text="${ex}" th:if="${not #strings.isEmpty(ex)}"> </div>
+<div class="alert alert-success" role="alert" th:text="${ef}" th:if="${not #strings.isEmpty(ef)}"> </div>
+    <div class="center-form">
+    <form class="formulario" method="post"> 
+        <p> Formados da EEEP. Padre João Bosco de Lima</p>
+        
+        <div class="field" class="input-group">
+            <label for="nome">Nome do Formado:</label>
+            <input type="text" id="nome" name="nome" placeholder="Nome do Formado" required name="nome">
+        </div>
+        
+        <div class="field">
+            <label for="telefone">Padrinhos:</label>
+            <input type="text" id="telefone" name="telefone" placeholder="Padrinho" name=""nomeAcompanhante>
+        </div>
+ 
+            <div class="form-group col-md-1" class="input-group">
+    <label for="inputState">Acompanhantes:</label>
+    <select id="inputState" class="form-control"   name="acompanhante" >
+    <option selected>01</option>
+    <option>02</option>
+    <option>03</option>
+    <option>04</option>
+    <option>05</option>
+    <option>06</option>
+    <option>07</option>
+    <option>08</option>
+    <option>09</option>
+    <option>10</option>
+    <option>11</option>
+    </select>
+    </div> 
+
+    <div id="t">
+    <div class="form-group col-md-1">
+    <label for="inputState">Turmas:</label>
+    <select id="inputState" class="form-control" name="turma">
+    <option selected>3º Administração</option>
+    <option>3º Agropecuária</option>
+    <option>3º Finanças</option>
+    <option>3º Informática</option>   
+    </select>
+    </div>
+    </div> 
+    <br>
+    <br>       
+        
+    <div id="button">
+        <input type="submit" name="/cadastrar" value="salvar">
+        </div>
+    </form>
+
+</body>
+</html>

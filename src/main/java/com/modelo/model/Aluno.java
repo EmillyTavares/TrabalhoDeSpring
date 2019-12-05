@@ -3,6 +3,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 
 
@@ -10,17 +11,23 @@ import javax.persistence.Id;
 public class Aluno {
 	@Id
 	@GeneratedValue
+	
 	private int id;
-	@Column(nullable = true)
+	@NotBlank (message="O nome é Obrigatorio")
 	private String nome;
 	private String acompanhante;
+	@NotBlank
 	@Column(nullable = true)
 	private String nomeAcompanhante;
 	private String turma;
-	
 	public String getNomeAcompanhante() {
 		return nomeAcompanhante;
 	}
+	
+	
+	
+	
+	
 	public void setNomeAcompanhante(String nomeAcompanhante) {
 		this.nomeAcompanhante = nomeAcompanhante;
 	}
