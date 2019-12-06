@@ -1,59 +1,128 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Formandos</title>
-<link rel='icon' href="a.jpg" type='image/jpg'>
-
-<meta name="viewport" content="width=device-widht"?>
-<link rel="shortcut icon"  href="e.png">
-
-
 <script type="text/javascript" th:src="@{js/main.js}" src="../static/js/main.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<style>
-#a{
- background:#333;
+    <title>Formulário HTML</title>
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon"  href="e.png">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <style type="text/css">
+        
+        .formulario{
+    width: 400px;
+    padding: 30px;
+    border:1px solid #ccc;
+    background: white;
 }
-input[type="submit"]{
-	margin-left:15px;
+.formulario p{
+    width: 100%;
+    font-size: 1.5em;
 }
-#banner{width:"100%";
-height:200px;
+.field{
+    width: 100%;
+    margin: 15px 0;
+}
+.field label, 
+.field span{
+    padding-left: 10px;
+    font-size: 1.1em;
+    display: block;
+    width: 100%;
+}
+.radiobox label{
+    width: auto;
+    display: inline-block;
+}
+input[type=text],
+input[type=email],
+textarea{
+    width: 100%;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+input#nao{
+    margin-left: 30px;
+}
+textarea{
+    line-height: 20px;
+    padding: 10px;
+    height: 90px;
+    resize: none;
+}
+input[type=submit]{
+    display: block;
+    background-color: orange;
+    height: 35px;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 15px;
+}
 
-opacity:0.5
-text-aling:center;}
+     body.center-form {
+    min-height: 100vh;
+  }
 
+  div.center-form {
+    position: relative;
+    min-height: 100vh;
 
-</style>
+  }
+
+  div.center-form > form {
+    position: absolute;
+    border: 9px solid #eead2d ;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  #t{
+    margin-left: 50%;
+    margin-top: -4%;
+  }
+  
+
+  #button{
+    background: white;
+  }
+
+    </style>
+
 </head>
-<body >
-<div id="banner">
-<h1>Formatura</h1>
-</div>
-<div id="a"></div>
+<body  class="center-form" bgcolor="">
 <div class="alert alert-success" role="alert" th:text="${mensagem}" th:if="${not #strings.isEmpty(mensagem)}"> </div>
 <div class="alert alert-success" role="alert" th:text="${ex}" th:if="${not #strings.isEmpty(ex)}"> </div>
 <div class="alert alert-success" role="alert" th:text="${ef}" th:if="${not #strings.isEmpty(ef)}"> </div>
-
-<form action="/salvar" method="GET" >
-<div class="w-50 p-3">
-<div class="input-group">
-  <div class="input-group-prepend" id="b">
-    <span class="input-group-text">Nome</span>
-  </div>
-  <input type="text"  name="nome" id="nome" class="form-control" aria-label="First name"  placeholder="Nome do Formando">
-</div>
-</div>
-<div class="w-50 p-3">
-<div class="input-group">
-  
-  
-   <div class="form-group">
-  <span class="input-group-text">N° DE ACOMPANHANTE</span>
-    <select class="form-control"  name="acompanhante" >
+    <div class="center-form">
+    <form action="/salvar" method="GET"> 
+        <p> Formados da EEEP. Padre João Bosco de Lima</p>
+        
+        <div class="field" class="input-group">
+            <label for="nome">Nome do Formado:</label>
+              <input type="text"  name="nome" id="nome" class="form-control" aria-label="First name" >
+        </div>
+        
+        <div class="field">
+            <label for="telefone">Padrinhos:</label>
+              <input type="text"  name="nomeAcompanhante" id="nomeacompanhante" placeholder="Padrinho(madrinha)" class="form-control" aria-label="First name" >
+        </div>
+ 
+            <div class="form-group col-md-1" class="input-group">
+    <label for="inputState">Acompanhantes:</label>
+ <select class="form-control"  name="acompanhante" >
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -67,15 +136,11 @@ text-aling:center;}
          <option>11</option>
           
     </select>
-  </div>
-</div>
-</div>
-<div class="w-50 p-3">
-<div class="input-group">
-  
-  
-   <div class="form-group">
-  <span class="input-group-text">Turma</span>
+    </div> 
+
+    <div id="t">
+    <div class="form-group col-md-1">
+    <label for="inputState">Turmas:</label>
     <select class="form-control"  name="turma" >
       <option>3° Administração</option>
       <option>3° Agropécuaria</option>
@@ -84,22 +149,15 @@ text-aling:center;}
      
           
     </select>
-  </div>
-</div>
-</div>
-
-<div class="w-50 p-3">
-<div class="input-group">
-  <div class="input-group-prepend" id="a">
-    <span class="input-group-text">Nome do Padrinho(madrinha)</span>
-  </div>
-  <input type="text"  name="nomeAcompanhante" id="nomeacompanhante" placeholder="Padrinho(madrinha)" class="form-control" aria-label="First name" >
-</div>
-</div>
-
+    </div>
+    </div> 
+    <br>
+    <br>       
+        
+    <div id="button">
 <input type="submit" value="Salvar" class="btn btn-primary eBtnth">
-</form>
-
+        </div>
+    </form>
 
 <table class="table table-sm table-dark">
  <table class="table table-sm">
@@ -133,29 +191,5 @@ text-aling:center;}
 		
 	</tr>
 </table>
-<div class="myForm">
-<form th:action="@{/salvar}" method="post">
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog " aria-labelledby="exampleModallabel" aria-hidden="true"
->
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="exampleModallabel">a</h5>
-
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-
-
-
-
-
-
-
 </body>
-</html>                                                                                                                                                                                                                                                                                                         
+</html>

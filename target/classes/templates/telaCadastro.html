@@ -1,0 +1,177 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <title></title>
+  <link rel='icon' href="a.jpg" type='image/jpg'>
+
+<meta name="viewport" content="width=device-widht"?>
+<link rel="shortcut icon"  href="e.png">
+
+
+<script type="text/javascript" th:src="@{js/main.js}" src="../static/js/main.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style type="text/css">
+     .formulario{
+    width: 400px;
+    padding: 30px;
+    border:1px solid #ccc;
+    background: white;
+}
+.formulario p{
+    width: 100%;
+    font-size: 1.5em;
+}
+.field{
+    width: 100%;
+    margin: 15px 0;
+}
+.field label, 
+.field span{
+    padding-left: 10px;
+    font-size: 1.1em;
+    display: block;
+    width: 100%;
+}
+.radiobox label{
+    width: auto;
+    display: inline-block;
+}
+input[type=text],
+input[type=email],
+textarea{
+    width: 100%;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+input#nao{
+    margin-left: 30px;
+}
+textarea{
+    line-height: 20px;
+    padding: 10px;
+    height: 90px;
+    resize: none;
+}
+input[type=submit]{
+    display: block;
+    background-color: orange;
+    height: 35px;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 15px;
+}
+
+     body.center-form {
+    min-height: 100vh;
+  }
+
+  div.center-form {
+    position: relative;
+    min-height: 100vh;
+
+  }
+
+  div.center-form > form {
+    position: absolute;
+    border: 9px solid #eead2d ;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  #t{
+    margin-left: 50%;
+    margin-top: -4%;
+  }
+  
+
+  #button{
+    background: white;
+  }
+  </style>
+</head>
+<body>
+<form class="form-horizontal" action="/salvar" method="GET">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Form Name</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput"></label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="Nome do Padrinho(madrinha)" class="form-control input-md" name="nomePadrinho">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput"></label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="Nome do formando" class="form-control input-md" name="nome" >
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic"></label>
+  <div class="col-md-4">
+    <select id="selectbasic" name="selectbasic" class="form-control" name="acompanhante">
+      <option value="1">N° de Acompanhante</option>
+      <option value="2">1</option>
+      <option value="">2</option>
+      <option value="">3</option>
+      <option value="">4</option>
+      <option value="">5</option>
+      <option value="">6</option>
+      <option value="">7</option>
+      <option value="">8</option>
+      <option value="">9</option>
+      <option value="">10</option>
+      <option value="">11</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic"></label>
+  <div class="col-md-4">
+    <select id="selectbasic" name="selectbasic" class="form-control" name="turma">
+      <option value="1">Turma:</option>
+      <option value="2">3° Administração</option>
+      <option value="">3° Agropecuária</option>
+      <option value="">3° Finanças</option>
+      <option value="">3° Informática</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary" Value="Salvar"">Salvar</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</body>
+</html>
