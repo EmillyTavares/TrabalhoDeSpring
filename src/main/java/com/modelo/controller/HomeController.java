@@ -35,7 +35,7 @@ public class HomeController {
 	
 	@GetMapping("/cadastro")
 	public ModelAndView cadastro() {
-		ModelAndView modelAndView= new ModelAndView("index1");
+		ModelAndView modelAndView= new ModelAndView("cadastrotela");
 		modelAndView.addObject("aluno", crud.findAll());
 		return modelAndView;
 		

@@ -11,22 +11,13 @@ body {
 	-moz-perspective: 1000px;
 	perspective: 1000px;
 	margin-top:60px;
-	margin-left:30%;
+	margin-left:33%;
 }
 .login {
 	font-family: 'Josefin Sans', sans-serif;
-	-webkit-transition: .3s;
-	-moz-transition: .3s;
-	transition: .3s;
-	-webkit-transform: rotateY(40deg);
-	-moz-transform: rotateY(40deg);
-	transform: rotateY(40deg);
+	
 }
-.login:hover {
-	-webkit-transform: rotate(0);
-	-moz-transform: rotate(0);
-	transform: rotate(0);
-}
+
 .login article {
 	
 }
@@ -67,7 +58,7 @@ body {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     margin-bottom: 100px;
 }
-.input-group-addon {
+ .input-group-addon {
     border-radius: 0;
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
@@ -78,15 +69,30 @@ body {
         border-right-style: none;
         border-right-width: medium;
 }
+input[type=submit]{
+    display: block;
+    background-color: orange;
+    height: 35px;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 15px;
+}
+
 </style>
-<title>Editar Formandos</title>
-<link rel="stylesheet" type="text/css" href="editarcss.css">
+<title>Formandos</title>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+
 </head>
 <body>
+<div class="alert alert-success" role="alert" th:text="${mensagem}" th:if="${not #strings.isEmpty(mensagem)}"> </div>
+<div class="alert alert-success" role="alert" th:text="${ex}" th:if="${not #strings.isEmpty(ex)}"> </div>
+<div class="alert alert-success" role="alert" th:text="${ef}" th:if="${not #strings.isEmpty(ef)}"> </div>
+
 
 <form method="get" action="/salvar">
 <div class="col-md-4 col-md-offset-4" id="login">
@@ -95,12 +101,9 @@ body {
 								<form>
 									<div class="form-group">
 									<div class="input-group">
-											<span class="input-group-">Id<i class="fa fa-user"> </i></span>
-											<input type="text" class="form-control"  th:field="*{id}" reandoly="reandoly">
-										</div>
 										<div class="input-group">
-											<span class="input-group-">Nome<i class="fa fa-user"> </i></span>
-											<input type="text" class="form-control"  th:field="*{nome}">
+											<span class="input-group-">Nome<i class="fa fa-user"> </i></span><br>
+											<input type="text" class="form-control"  name="nome">
 										</div>
 									</div>
 									
@@ -111,7 +114,7 @@ body {
   
    <div class="form-group">
   <span class="input-group-text">N° DE ACOMPANHANTE <i class="fa fa-envelope"> </i></span>
-    <select class="form-control" th:field="*{acompanhante}" >
+    <select class="form-control" name="acompanhante" >
       <option value="1">1</option>
       <option  value="2">2</option>
       <option  value="3">3</option>
@@ -130,7 +133,7 @@ body {
 </div>
  <div class="form-group">
   <span class="input-group-text">Turma <i class="fa fa-envelope"> </i></span>
-    <select class="form-control"  id="turma" th:field="*{turma}"  >
+    <select class="form-control"  id="turma"name="turma">
       <option value="3° Administração">3° Administração</option>
       <option value="3° Agropécuaria">3° Agropécuaria</option>
       <option value="3° Finanaças">3 Finanças</option>
@@ -143,16 +146,49 @@ body {
 										<div class="input-group">
 											<span class="input-group">Nome do padrinho(madrinha)
 											<i class="fa fa-envelope"> </i></span>
-											<input type="text" class="form-control"  th:field="*{nomeAcompanhante}">
+											<input type="text" class="form-control" name="nomeAcompanhante">
 										</div>
 									</div>
 									
-  									  <button type="submit" class="btn btn-success btn-block" value="editar">Editar</button>
+  									  <button type="submit" class="btn btn-primary" value="salvar">Salvar</button>
 								</form>
 							</article>
 						</section></div>
 						
+</div>
+<div id="d">
+<table class="table table-sm table-dark">
+ <table class="table table-sm">
+  <thead>
+    <tr>
+  <td scope="col">N°</td>
+      <td scope="col">NOME DO FORMADO</td>
+      <td scope="col">N° DE ACOMPANHANTE</td>
+      <td scope="col">NOME DO PADRINHO</td>
+      <td>TURMA</td>
+      <td scope="col">EDITAR</td>
+      <td scope="col">EXCLUIR</td>
+    </tr>
+  </thead>
 
+
+	<tr  th:each="a : ${aluno}">
+	<td th:text="${a.id}"> </td>
+	<td th:text="${a.nome}"> </td>
+	<td th:text="${a.acompanhante}"> </td>		
+	<td th:text="${a.nomeAcompanhante}"> </td>
+	<td th:text="${a.turma}"></td>
+	<td>
+	<a class="btn btn-primary" th:href="@{/editar/{id}(id=${a.id})}" >Editar</a>
+	</td>
+		
+	<td> 
+	<a class="btn btn-danger" th:href="@{/delete/{id}(id=${a.id})}">Excluir</a>
+	
+	</td>
+		
+	</tr>
+</table>
 
 						</body>
 						</html>
