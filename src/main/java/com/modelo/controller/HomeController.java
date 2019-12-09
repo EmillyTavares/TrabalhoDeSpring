@@ -78,7 +78,7 @@ public class HomeController {
 	public ModelAndView delete(@PathVariable("id") int id) {
 		
 		crud.deleteById(id);		
-		ModelAndView modelAndView= new ModelAndView("index1");
+		ModelAndView modelAndView= new ModelAndView("cadastrotela");
 		modelAndView.addObject("aluno", crud.findAll());
 		return modelAndView;
 	}
