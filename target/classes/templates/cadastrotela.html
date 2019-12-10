@@ -84,7 +84,9 @@ input[type=submit]{
     border-radius: 15px;
 }
 #cor{
-background:	#B8860B
+background:	#B8860B;
+color:white;
+aling:center;
 ;
 }
 </style>
@@ -95,7 +97,7 @@ background:	#B8860B
 </head>
 <body >
 <div id="cor">
-<h1>Formatura</h1>
+<h1 align="center">Formatura</h1>
 
 <div id="cor">
 <div class="alert alert-success" role="alert" th:text="${mensagem}" th:if="${not #strings.isEmpty(mensagem)}"> </div>
@@ -161,6 +163,7 @@ background:	#B8860B
 									</div>
 									
   									  <button type="submit" class="btn btn-primary" value="salvar">Salvar</button>
+  									   <a href="/logout"><button type="button" class="btn btn-danger">Sair</button></a>
 								</form>
 								
 							</article>
@@ -203,4 +206,4 @@ background:	#B8860B
 </table>
 
 						</body>
-						</html>
+				
